@@ -1,0 +1,105 @@
+.loginCon {
+  @include size(100%,100%);
+  background: url('images/loginBg.jpg');
+  background-size: 100% 100%;
+  .iconBg {
+    @include size(7.51rem,7.01rem);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -3.52rem 0 0 -3.755rem;
+    background: url('images/loginBgIcons.png');
+    background-size: 7.51rem 7.04rem;
+  }
+  #loginBox {
+    @include size(4.7rem,4rem);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -2rem 0 0 -2.35rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0.05rem;
+    overflow: hidden;
+    .header {
+      @include size(100%,0.9rem);
+      line-height: 0.9rem;
+      text-align: center;
+      color: #fff;
+      font-size: 0.3rem;
+      background: #1e549a;
+    }
+    form {
+      margin: 0.4rem 0.5rem 0;
+      .userName, .passWord {
+        @include size(100%,0.45rem);
+        padding-left: 0.45rem;
+        margin-bottom: 0.2rem;
+        border: 1px solid #bbbbbb;
+        overflow: hidden;
+        input {
+          @include size(100%,100%);
+          border: none;
+          padding: 0.1rem;
+        }
+      }
+      .userName:before {
+        content: "";
+        @include size(0.45rem,0.43rem);
+        background-color: #bbbbbb;
+        background-image: url('images/loginUserIcon.png');
+        background-size: 0.24rem 0.29rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        float: left;
+        margin-left: -0.45rem;
+      }
+      .passWord:before {
+        content: "";
+        @include size(0.45rem,0.43rem);
+        background-color: #bbbbbb;
+        background-image: url('images/loginPasswordIcon.png');
+        background-size: 0.24rem 0.29rem;
+        background-position: center center;
+        background-repeat: no-repeat;
+        float: left;
+        margin-left: -0.45rem;
+      }
+      .operate {
+        @extend .clearfix;
+        margin-bottom: 0.2rem;
+        .remember {
+          float: right;
+          color: #555555;
+          font-weight: normal;
+          span:first-child {
+            span {
+              border-color: #1e549a;
+              &.is-focus {
+                border-color: #1e549a;
+              }
+              &.is-checked {
+                background-color: #1e549a !important;
+              }
+            }
+          }
+        }
+        .tips {
+          float: left;
+          color: red;
+        }
+      }
+      .loginBtn {
+        @include size(100%,0.45rem);
+        line-height: 0.45rem;
+        text-align: center;
+        color: #fff;
+        font-size: 0.18rem;
+        background: #1e549a;
+        border: none;
+        border-radius: 0.05rem;
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@mixin size($width:100%,$height:auto) {
+  width: $width;
+  height: $height;
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin gradient($color1,$color2,$opacity1:0%,$opacity2:100%) {
+  background: -moz-linear-gradient(top, $color1 $opacity1, $color2 $opacity2);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop($opacity1, $color1), color-stop($opacity2, $color2));
+  background: -webkit-linear-gradient(top, $color1 $opacity1, $color2 $opacity2);
+  background: -o-linear-gradient(top, $color1 $opacity1, $color2 $opacity2);
+  background: -ms-linear-gradient(top, $color1 $opacity1, $color2 $opacity2);
+  background: linear-gradient(to bottom, $color1 $opacity1, $color2 $opacity2);
+}
+
+@mixin border-gradient($color1,$color2,$opacity1:0%,$opacity2:100%) {
+  border-image: -webkit-linear-gradient($color1, $color2) $opacity1 $opacity2;
+  border-image: -moz-linear-gradient($color1, $color2) $opacity1 $opacity2;
+  border-image: linear-gradient($color1, $color2) $opacity1 $opacity2;
+}
+
+@mixin crosswise-shadow($color1,$color2,$opacity1:0%,$opacity2:100%) {
+  background: -webkit-linear-gradient(left, $color1 $opacity1 , $color2 $opacity2);
+  background: -o-linear-gradient(right, $color1 $opacity1, $color2 $opacity2);
+  background: -moz-linear-gradient(right, $color1 $opacity1, $color2 $opacity2);
+  background: linear-gradient(to right, $color1 $opacity1, $color2 $opacity2);
+}
+
+@mixin border-shadow($color1,$color2) {
+  border-image: linear-gradient(to right, $color1, $color2) 10;
+  border-image: -webkit-linear-gradient(left, $color1 , $color2) 10;
+  border-image: -o-linear-gradient(right, $color1, $color2) 10;
+  border-image: -moz-linear-gradient(right, $color1, $color2) 10;
+  border-image: linear-gradient(to right, $color1, $color2) 10;
+}
+
+@mixin deg-shadow($color1,$color2,$deg) {
+  background: -webkit-linear-gradient($deg, $color1 , $color2);
+  background: -o-linear-gradient($deg, $color1 , $color2);
+  background: -moz-linear-gradient($deg, $color1 , $color2);
+  background: linear-gradient($deg, $color1 , $color2);
+}

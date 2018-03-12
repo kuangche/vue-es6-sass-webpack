@@ -1,0 +1,146 @@
+.userManage {
+  @include size(100%,100%);
+  .contentBox {
+    @include size(100%,100%);
+    padding: 0.1rem 0.2rem 0;
+    position: relative;
+    .location {
+      margin-bottom: 0.2rem;
+    }
+    .searchBox {
+      margin-bottom: 0.2rem;
+      .searchTxt {
+        @include size(2.8rem,0.3rem);
+        line-height: 0.28rem;
+        border: 1px solid #0ba9f2;
+        background: rgba(11, 169, 242, 0.2);
+        display: inline-block;
+        margin-right: 0.1rem;
+        color: $white;
+        padding-left: 0.1rem;
+        &::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+          color: rgba(158, 243, 254, 0.5)
+        }
+      }
+      .searchBtn {
+        @include size(0.6rem,0.3rem);
+        line-height: 0.28rem;
+        text-align: center;
+        border: 1px solid #76d6fe;
+        background: none;
+        border-radius: 3px;
+        display: inline-block;
+        color: #76d6fe;
+        cursor: pointer;
+      }
+    }
+    .dataTable {
+      .el-table::after,
+      .el-table::before {
+        background: none;
+      }
+      .el-table {
+        border: 1px solid #0ba9f2;
+        background: none;
+        tr {
+          background: none;
+          th {
+            background: rgba(11, 169, 242, 0.2);
+            text-align: center;
+            & > div {
+              color: #a2f7ff;
+              background: none;
+            }
+            &.is-leaf {
+              border-bottom: 1px solid rgba(11, 169, 242, 0.5);
+            }
+            &:first-child {
+              background: rgba(11, 169, 242, 0.2);
+            }
+          }
+          td {
+            color: $white;
+            text-align: center;
+            border-bottom: 1px solid rgba(11, 169, 242, 0.2);
+            border-right: 1px solid rgba(11, 169, 242, 0.2);
+          }
+        }
+        &.el-table--border {
+          th, td {
+            border-right: 1px solid rgba(11, 169, 242, 0.2);
+          }
+        }
+        &.el-table--enable-row-hover tr:hover > td {
+          background-color: rgba(239, 242, 247, 0.1);
+        }
+        .operateCon {
+          .el-button--text {
+            color: rgba(158, 243, 254, 0.5)
+          }
+        }
+      }
+    }
+    .operate {
+      margin: 0.1rem 0;
+      @extend .clearfix;
+      .addUser {
+        @include size(1rem,0.3rem);
+        line-height: 0.3rem;
+        float: right;
+        color: $white;
+        background: #1e549a;
+        text-align: center;
+        padding-left: 0.3rem;
+        cursor: pointer;
+        .icon {
+          @include size(0.3rem,0.3rem);
+          float: left;
+          color: $white;
+          margin-left: -0.3rem;
+          text-align: center;
+          line-height: 0.3rem;
+          font-size: 0.18rem;
+          background: #063e86;
+        }
+      }
+    }
+    .dataPage {
+      text-align: center;
+      color: #1e549a;
+      .el-pagination .btn-next,
+      .el-pagination .btn-prev {
+        background: none;
+        border-color: #1151b2;
+      }
+      .el-pagination .el-select  input{
+        background: none;
+        color: #fff;
+        border: 1px solid #1151b2;
+      }
+      .el-pager {
+        li {
+          background: none;
+          border-color: #1151b2;
+          color: #1e549a;
+          &.active {
+            background: #1151b2;
+            color: #fff
+          }
+        }
+      }
+      .el-pagination button, .el-pagination span {
+        color: #1e549a
+      }
+    }
+  }
+
+  .userDlg{
+    .el-select,.el-date-editor{
+      width:100%;
+    }
+    .el-tree{
+      height: 2rem;
+      overflow-y: auto;
+    }
+  }
+}

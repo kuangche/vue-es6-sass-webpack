@@ -1,0 +1,102 @@
+#container {
+  @include size(100%,100%);
+}
+
+#wrap {
+  @include size(100%,calc(100% - 0.6rem));
+
+  /*--左侧导航--*/
+  .leftSide {
+    @include size(1.5rem,100%);
+    background: #0d294e;
+    float: left;
+    & > ul {
+      &:first-child {
+        border-top: 5px solid #194584;
+      }
+      & > li{
+        border-bottom: 1px solid #0d294e;
+
+        & > a{
+          @include size(100%,0.6rem);
+          line-height: 0.6rem;
+          font-size: 0.15rem;
+          display: inline-block;
+          color:#9ef3fe;
+          text-indent: 0.65rem;
+          background: #1e549a;
+          cursor: pointer;
+          background-repeat: no-repeat;
+          background-size: 0.27rem 0.23rem;
+          &.manageNav {
+            background-image: url('images/manageIcon.png');
+            background-position: 0.3rem 0.17rem;
+          }
+
+          &.router-link-active{
+            color:#fff;
+            & + ul{
+              display: block;
+            }
+            &.manageNav {
+              background-image: url('images/manageIcon-1.png');
+            }
+          }
+        }
+
+        & > ul {
+          padding: 0.1rem 0;
+          display: none;
+          & > li {
+            @include size(100%,0.3rem);
+            line-height: 0.3rem;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.14rem;
+            a, a:hover {
+              color: $blue-1e;
+            }
+            &.router-link-active {
+              a {
+                color: $blue-9e;
+                text-shadow: #0153cc 0px 0px 20px;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  /*--主体内容--*/
+  #main {
+    @include size(calc(100% - 1.5rem),100%);
+    border-left: 0.05rem solid #051533;
+    border-top: 0.05rem solid #051533;
+    background: url('images/mainBg.jpg');
+    background-size: 100% 100%;
+    float: right;
+    overflow-y: auto;
+    /*--位置导航--*/
+    .location {
+      color: $white-75;
+      span {
+        color: $blue-03;
+        a {
+          color: $blue-03;
+        }
+        &.split {
+          margin: 0 0.1rem;
+        }
+        &:last-child {
+          color: $white;
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+}

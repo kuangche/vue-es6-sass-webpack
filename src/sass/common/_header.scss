@@ -1,0 +1,13 @@
+header {
+  height: 0.6rem;
+  @include gradient(#183a66, #1e549a, 20%, 100%);
+  .logo {
+    width: 1.75rem;
+    height: 0.41rem;
+    float: left;
+    margin: 0.08rem 0 0 0.2rem;
+    overflow: hidden;
+    color:$white;
+  }
+}
+
