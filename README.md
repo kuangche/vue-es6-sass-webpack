@@ -1,6 +1,6 @@
-# vue_ml
+# vue_demo
 
-> A Vue.js project
+> 该demo中包含登录+记住密码（cookie机制）+普通列表，配合mockjs做接口，实现前后端分离，打包的时候只需要忽略改模块即可实现请求线上地址
 
 ## Build Setup
 
@@ -22,4 +22,3 @@ npm run build --report
 ``` bash
 用户密码不为空即可
 ```
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
