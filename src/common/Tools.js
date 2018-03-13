@@ -16,9 +16,13 @@ class Tools {
     static getPathname() {
         return location.pathname;
     }
-
+	
+    /**
+    * 计算字符串长度(英文占1个字符，中文汉字占2个字符)
+    * @str 任意字符串
+    * @returns {number}返回字符串的长度
+    */
     static getStrLen(str) {
-        //计算字符串长度(英文占1个字符，中文汉字占2个字符)
         var len = 0;
         for (var i = 0; i < str.length; i++) {
             if (str.charCodeAt(i) > 127 || str.charCodeAt(i) == 94) {
@@ -27,11 +31,15 @@ class Tools {
                 len++;
             }
         }
-
         return len;
     }
-
-    static isEmpty(param) {
+	
+    /**
+    * 判断变量是否为空
+    * @param 需要判断的字段
+    * 返回值为true或false
+	 */
+	  static isEmpty(param) {
         if (typeof param == 'object') {
             /* 是否为数组 */
             if ((param == null) || (Object.prototype.toString.call(param) === '[object Array]' && param.length == 0) ||
@@ -45,16 +53,24 @@ class Tools {
         }
         return (typeof param == 'undefined' || (typeof param == 'string' && param == '') || (typeof param == 'number' && isNaN(param)));
     }
-
-    //写cookies
+	
+	  /**
+    * 设置cookie
+   * @name 设置的cookie名字
+   * @value 设置的cookie值
+   * @day 设置cookie有效时间
+	 */
     static setCookie(name, value, day) {
-        var Days = 30;
+        var Days = day || 30;
         var exp = new Date();
         exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
         document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
     }
-
-    //读取cookies
+    
+	  /**
+     * 读取 指定的cookie
+	   * @name 要读取的cookie名字
+	   */
     static getCookie(name) {
         var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
         var arr = document.cookie.match(reg);
@@ -64,7 +80,10 @@ class Tools {
             return null;
     }
 
-    //删除cookies
+	  /**
+     * 删除 指定的cookie
+     * @name 要删除的cookie名字
+     */
     static delCookie(name) {
         var exp = new Date();
         exp.setTime(exp.getTime() - 1);
@@ -72,14 +91,14 @@ class Tools {
         if (cval != null)
             document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
     }
-    /**参数说明：
+    
+    /**
      * 根据长度截取先使用字符串，超长部分追加…
-     * str 对象字符串
-     * len 目标字节长度
+     * @str 对象字符串
+     * @len 目标字节长度
      * 返回值： 处理结果字符串
      */
     static cutString(str, len) {
-        //length属性读出来的汉字长度为1
         if(str.length*2 <= len) {
             return str;
         }
@@ -127,28 +146,6 @@ class Tools {
             result = num + result;
         }
         return result;
-    }
-
-    /**
-     * @name Utils#toThousandsDot
-     * @function
-     * @desc 带小数的千位符格式化。
-     * @param Number 待格式化数字
-     * @param Number 保留小数位
-     * @return String 截取后字符串
-     */
-
-    static toThousandsDot(s, n){
-        n = n > 0 && n <= 20 ? n : 2;
-        s = parseFloat((s + '').replace(/[^\d\.-]/g, '')).toFixed(n) + '';
-        var l = s.split('.') [0].split('').reverse(),
-            r = s.split('.') [1];
-        var  t = '';
-        for (var i = 0; i < l.length; i++)
-        {
-            t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? ',' : '');
-        }
-        return t.split('').reverse().join('') + '.' + r;
     }
 }
 
