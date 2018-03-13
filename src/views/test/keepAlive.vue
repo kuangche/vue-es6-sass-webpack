@@ -1,28 +1,33 @@
 <template>
-    <div>
-        <div class="testCon">
-            <ul>
-                <li @click="changeComponent('Component1')">组件1</li>
-                <li @click="changeComponent('Component2')">组件2</li>
-                <li @click="changeComponent('Component3')">组件3</li>
-            </ul>
-            <div>
-                <keep-alive>
-                    <component v-bind:is="currentView"></component>
-                </keep-alive>
+    <frame-component>
+        <div>
+            <div class="testCon">
+                <ul>
+                    <li @click="changeComponent('Component1')">组件1</li>
+                    <li @click="changeComponent('Component2')">组件2</li>
+                    <li @click="changeComponent('Component3')">组件3</li>
+                </ul>
+                <div>
+                    <keep-alive>
+                        <component v-bind:is="currentView"></component>
+                    </keep-alive>
+                </div>
             </div>
         </div>
-    </div>
+    </frame-component>
 </template>
 <script>
     import Component1 from './component/keepAlive/component1';
     import Component2 from './component/keepAlive/component2';
     import Component3 from './component/keepAlive/component3';
-    export default {
+    import FrameComponent from '../../components/frame.vue';
+
+		export default {
     	components:{
     		Component1,
             Component2,
             Component3,
+            FrameComponent
         },
       data(){
     		return{
@@ -33,9 +38,6 @@
             changeComponent(name){
                 this.currentView = name;
             }
-      },
-      mounted(){
-    		debugger;
       }
     }
 </script>
