@@ -3,6 +3,7 @@
  */
 
 import * as utils from '../../../common/utils';
+import {SET_PAGE_NO_USER_MANAGE, SET_PAGE_SIZE_USER_MANAGE, SET_PAGE_TOTAL_USER_MANAGE, SET_USER_LIST_USER_MANAGE} from '../../mutation-types'
 const state = {
     pageNo: 1,
     pageSize: 10,
@@ -11,16 +12,16 @@ const state = {
     userList: null,
 }
 const mutations = {
-    SET_PAGE_NO_USER_MANAGE (state, pageNo) {
+    [SET_PAGE_NO_USER_MANAGE] (state, pageNo) {
         state.pageNo = pageNo;
     },
-    SET_PAGE_SIZE_USER_MANAGE (state, pageSize) {
+    [SET_PAGE_SIZE_USER_MANAGE] (state, pageSize) {
         state.pageSize = pageSize;
     },
-    SET_PAGE_TOTAL_USER_MANAGE (state, total) {
+    [SET_PAGE_TOTAL_USER_MANAGE] (state, total) {
         state.total = total;
     },
-    SET_USER_LIST_USER_MANAGE (state, userList) {
+    [SET_USER_LIST_USER_MANAGE] (state, userList) {
         state.userList = userList;
     },
 }
@@ -40,8 +41,8 @@ const actions = {
                     if(data.statusCode == 200){
                         const userList = data.bodyData.bodyData;
                         const total = data.bodyData.total;
-                        commit('SET_USER_LIST_USER_MANAGE', userList);
-                        commit('SET_PAGE_TOTAL_USER_MANAGE', total);
+                        commit(SET_USER_LIST_USER_MANAGE, userList);
+                        commit(SET_PAGE_TOTAL_USER_MANAGE, total);
                         resolve(userList)
                     }else if(data.statusCode == 300){
                         reject(data.message)
@@ -75,10 +76,10 @@ const actions = {
         })
     },
     setPageNoUser: ({commit}, pageNo) => {
-        commit('SET_PAGE_NO_USER_MANAGE', pageNo)
+        commit(SET_PAGE_NO_USER_MANAGE, pageNo)
     },
     setPageSizeUser: ({commit}, pageSize) => {
-        commit('SET_PAGE_SIZE_USER_MANAGE', pageSize)
+        commit(SET_PAGE_SIZE_USER_MANAGE, pageSize)
     }
 }
 export default {

@@ -2,6 +2,7 @@
  * Created by jige on 2016/11/23.
  */
 import * as utils from '../../common/utils';
+import {SIGNIN_USER, REMEMBER_USER} from '../mutation-types';
 const state = {
     user: {
         id: utils.Tools.getCookie('userId'),
@@ -10,10 +11,10 @@ const state = {
     rememberMe: utils.Tools.getCookie('rememberMe') == null ? false : utils.Tools.getCookie('rememberMe')
 }
 const mutations = {
-    SIGNIN_USER(state, user) {
+    [SIGNIN_USER](state, user) {
         state.user = user;
     },
-    REMEMBER_USER(state, rememberMe) {
+    [REMEMBER_USER](state, rememberMe) {
         state.rememberMe = rememberMe;
     },
 }
@@ -37,7 +38,7 @@ const actions = {
                     if (data.statusCode == 200) {//正常登录
                         const userId = utils.Tools.getCookie('userId');
                         const userName = utils.Tools.getCookie('userName');
-                        commit('SIGNIN_USER', {
+                        commit(SIGNIN_USER, {
                             id: userId,
                             name: userName
                         });
@@ -53,7 +54,7 @@ const actions = {
         })
     },
     rememberChange({commit}, rememberMe){
-        commit('REMEMBER_USER', rememberMe);
+        commit(REMEMBER_USER, rememberMe);
     },
 }
 export default {

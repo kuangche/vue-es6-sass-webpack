@@ -33,6 +33,9 @@
             changeComponent(name){
                 this.currentView = name;
             }
+      },
+      mounted(){
+    		debugger;
       }
     }
 </script>
