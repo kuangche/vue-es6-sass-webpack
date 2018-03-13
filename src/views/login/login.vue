@@ -12,7 +12,7 @@
                 </div>
                 <div class="operate">
                     <span class="tips" v-if="showTips">{{tipsTxt}}</span>
-                    <el-checkbox class="remember" @change = "rememberHandle">下次自动登录</el-checkbox>
+                    <el-checkbox class="remember" :value="rememberMe" @change = "rememberHandle">下次自动登录</el-checkbox>
                 </div>
                 <span class="loginBtn" @click="loginHandle">登录</span>
             </form>

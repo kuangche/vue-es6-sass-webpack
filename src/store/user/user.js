@@ -8,7 +8,7 @@ const state = {
         id: utils.Tools.getCookie('userId'),
         name: utils.Tools.getCookie('userName'),
     },
-    rememberMe: utils.Tools.getCookie('rememberMe') == null ? false : utils.Tools.getCookie('rememberMe')
+    rememberMe: utils.Tools.isEmpty(utils.Tools.getCookie('rememberMe')) || utils.Tools.getCookie('rememberMe') == 'false' ? false : true
 }
 const mutations = {
     [SIGNIN_USER](state, user) {
@@ -55,6 +55,7 @@ const actions = {
     },
     rememberChange({commit}, rememberMe){
         commit(REMEMBER_USER, rememberMe);
+			  utils.Tools.setCookie('rememberMe',rememberMe)
     },
 }
 export default {
